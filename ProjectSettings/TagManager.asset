@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayArea
+  - Goal
   layers:
   - Default
   - TransparentFX

@@ -7,5 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/AR_T.unity
-    guid: 261c733e561485f4296faa2001c4d3a9
+    guid: 66029ade685d14b47b4d9f661609228a
   m_configObjects: {}
