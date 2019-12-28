@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class GoalView : MonoBehaviour {
     [SerializeField] private Renderer goalModelMat = null;
-    [SerializeField] private Material itsGoalMat;
+    [SerializeField] private SceneController sceneController = null;
+    private bool scoreGoal = true;
+
     public void ItsAGoal () {
-        goalModelMat.material = itsGoalMat;
+        if(scoreGoal)
+        {   
+            sceneController.PlayerScoredGoal();
+            scoreGoal = false;
+        }
     }
 }

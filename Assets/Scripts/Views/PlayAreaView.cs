@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayAreaView : MonoBehaviour
 {
     #region -----------------------Private Varialbes-------------------------
-    [SerializeField] private GameSceneOneController sceneOneController;
+    [SerializeField] private SceneController sceneOneController;
     #endregion---------------------------------------------------------------
 
     #region -----------------------Public Varialbes--------------------------

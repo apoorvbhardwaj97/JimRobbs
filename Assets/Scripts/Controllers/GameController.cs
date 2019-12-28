@@ -35,6 +35,10 @@ namespace GoogleARCore.Examples.HelloAR {
         /// </summary>
         public GameObject GameObjectPointPrefab;
 
+        [SerializeField] private UIController uIController;
+        public UIController UIController => uIController;
+
+
         /// <summary>
         /// The rotation in degrees need to apply to prefab when it is placed.
         /// </summary>
@@ -52,7 +56,7 @@ namespace GoogleARCore.Examples.HelloAR {
 
         private int ObjectCount = 0;
 
-        private GameSceneOneController sceneOneController = null;
+        private GameSceneController gameSceneController = null;
 
         public void Awake () {
             // Enable ARCore to target 60fps camera capture frame rate on supported devices.
@@ -111,7 +115,8 @@ namespace GoogleARCore.Examples.HelloAR {
 
                     // Instantiate prefab at the hit pose.
                     var gameObject = Instantiate (prefab, hit.Pose.position, hit.Pose.rotation);
-                    sceneOneController = gameObject.GetComponent<GameSceneOneController> ();
+                    gameSceneController = gameObject.GetComponent<GameSceneController> ();
+                    gameSceneController.SetRefrences(uIController, this);
                     ++ObjectCount;
                     // Compensate for the hitPose rotation facing away from the raycast (i.e.
                     // camera).
@@ -127,11 +132,11 @@ namespace GoogleARCore.Examples.HelloAR {
             }
         }
 
-        public void RespawnBall () {
-            if (sceneOneController != null) {
-                sceneOneController.RespawnBall ();
-            }
-        }
+        // public void RespawnBall () {
+        //     if (gameSceneController != null) {
+        //         gameSceneController.RespawnBall ();
+        //     }
+        // }
 
         /// <summary>
         /// Check and update the application lifecycle.
